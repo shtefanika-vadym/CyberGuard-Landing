@@ -1,0 +1,44 @@
+@import 'responsive.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+.screen {
+  height: 100vh;
+}
+
+.screenTitle {
+  font-style: normal;
+  font-weight: 700;
+  @include adaptive-value('font-size', 60, 20, 0);
+  line-height: 125%;
+  color: var(--color-white);
+}
+
+.textGradient {
+  background: linear-gradient(90deg, #0acffe 6.55%, #495aff 49.91%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.description {
+  font-style: normal;
+  font-weight: 500;
+  @include adaptive-value('font-size', 24, 10, 0);
+  line-height: 120%;
+  color: var(--color-white);
+}
+
+.content {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  max-width: 1400px;
+  @include adaptive-value('margin-left', 150, 50, 0);
+  @include adaptive-value('margin-right', 150, 50, 0);
+}
