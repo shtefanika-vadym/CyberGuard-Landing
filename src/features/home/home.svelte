@@ -5,7 +5,7 @@
   import ContactForm from './components/contact-form/contact-form.svelte'
 </script>
 
-<div class="parent">
+<div class="home">
   <FirstScreen />
   <div class="screenBorder" />
   <SecondScreen />
@@ -16,10 +16,6 @@
 
 <style lang="scss">
   @import "src/common/style/responsive";
-
-  .parent {
-    background-color: var(--color-background) ;
-  }
 
   .screenBorder {
     height: 265px;

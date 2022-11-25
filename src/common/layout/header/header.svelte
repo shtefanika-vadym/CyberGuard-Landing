@@ -1,18 +1,16 @@
 <script>
   import logo from '../../assets/logo.png'
-  import { ALT_IMG } from '../../../../common/constants/constants'
-
 </script>
 
-<header class="content header">
-  <img class="logo" src={logo} alt={ALT_IMG.LOGO_ICON}>
+<header class="header">
+  <img class="logo" src={logo} alt="">
 </header>
 
 <style lang="scss">
   @import "src/common/style/responsive";
 
   .header {
-    @include adaptive-value('padding-top', 40, 10, 0);
+    @include adaptive-value('top', 40, 10, 0);
   }
 
   .logo {

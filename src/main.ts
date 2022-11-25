@@ -14,6 +14,7 @@ import './common/style/responsive.scss'
 
 const app = new App({
   target: document.getElementById('app'),
+  hydrate: false,
 })
 
 export default app

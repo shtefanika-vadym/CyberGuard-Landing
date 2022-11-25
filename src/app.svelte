@@ -1,7 +1,9 @@
 <script lang="ts">
-  import Home from './features/home/home.svelte'
+  import Routes from './routes/routes.svelte'
+  import Header from './features/home/components/header/header.svelte'
 </script>
 
-<main>
-  <Home />
+<main class="parent">
+  <Header />
+  <Routes />
 </main>

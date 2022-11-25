@@ -1,5 +1,4 @@
 <script>
-  import Header from '../header/header.svelte'
   import screenImg from '../../assets/first-bg.png'
   import {
     FIRST_SCREEN_LABELS
@@ -10,7 +9,6 @@
 
 <div class="screen">
   <div class="content">
-    <Header />
     <div class="contentInfo">
       <h2 class="screenTitle">
         {FIRST_SCREEN_LABELS.EXTRA_LAYER}
