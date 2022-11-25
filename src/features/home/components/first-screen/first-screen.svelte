@@ -10,12 +10,12 @@
 <div class="screen">
   <div class="content">
     <div class="contentInfo">
-      <h2 class="screenTitle">
+      <h1 class="screenTitle">
         {FIRST_SCREEN_LABELS.EXTRA_LAYER}
         <br />
         <span class="textGradient">{FIRST_SCREEN_LABELS.SECURITY}</span>
         {FIRST_SCREEN_LABELS.YOUR_LIFE}
-      </h2>
+      </h1>
       <p class="description screenDescription">{FIRST_SCREEN_LABELS.USE_TO_HELP}</p>
       <button class="button description">{FIRST_SCREEN_LABELS.GET_CYBERGUARD}</button>
     </div>
@@ -26,12 +26,24 @@
 <style lang="scss">
   @import "src/common/style/responsive";
 
+  h1 {
+    @include adaptive-value('font-size', 60, 25, 0);
+  }
+
   .screenDescription {
     @include adaptive-value('padding-top', 30, 10, 0);
     @include adaptive-value('padding-bottom', 48, 18, 0);
   }
 
+  .textGradient {
+    @include device(extraSmall) {
+      display: block;
+    }
+  }
+
   .contentInfo {
+    z-index: 2;
+    position: relative;
     @include device(extraSmall) {
       text-align: center;
     }
@@ -48,9 +60,10 @@
   }
 
   .screenImage {
-    @include adaptive-value('width', 900, 200, 0);
+    z-index: 1;
+    @include adaptive-value('width', 1600, 200, 0);
     position: absolute;
-    right: 0;
+    right: -180px;
     @include device(smallOnly) {
       display: none;
     }

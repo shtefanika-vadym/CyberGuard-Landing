@@ -8,17 +8,24 @@
 }
 
 .parent {
+  overflow: hidden;
   background-color: var(--color-background);
 }
 
 .screen {
+  position: relative;
   height: 100vh;
+
+  @include device(smallOnly) {
+    height: min-content;
+    padding: 100px 0 100px 0;
+  }
 }
 
 .screenTitle {
   font-style: normal;
   font-weight: 700;
-  @include adaptive-value('font-size', 60, 20, 0);
+  @include adaptive-value('font-size', 40, 15, 0);
   line-height: 125%;
   color: var(--color-white);
 }
@@ -44,6 +51,23 @@
   align-items: center;
   @include adaptive-value('margin-left', 150, 50, 0);
   @include adaptive-value('margin-right', 150, 50, 0);
+  @include device(smallOnly) {
+    height: min-content;
+  }
+}
+
+.secondAdditionalBlock {
+  width: 45%;
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  @include adaptive-value('row-gap', 30, 10, 0);
+  @include device(smallOnly) {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 ::-webkit-scrollbar {

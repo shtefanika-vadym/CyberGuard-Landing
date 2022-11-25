@@ -12,7 +12,11 @@
     activeRoute = route
   }
 
-  onMount(() => activeRoute = window.location.pathname.split('/')[1])
+  onMount(() => activeRoute = `/${window.location.pathname.split('/')[1]}`)
+
+  $: {
+    console.log(activeRoute)
+  }
 
 </script>
 
@@ -34,8 +38,10 @@
   @import "src/common/style/responsive";
 
   .header {
+    z-index: 2;
     display: flex;
     align-items: center;
+    position: relative;
     justify-content: space-between;
     @include adaptive-value('column-gap', 50, 10, 0);
     @include adaptive-value('padding-top', 40, 10, 0);

@@ -4,6 +4,7 @@ import type { NavigationItem } from '../interfaces/navigation-item'
 export enum ALT_IMG {
   LOGO_ICON = 'Logo Icon',
   SCREEN_IMG = 'Screen Image',
+  PROTECTION_ICON = 'Protection Icon',
 }
 
 export const NAVIGATION_LIST: NavigationItem[] = [

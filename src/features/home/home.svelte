@@ -19,6 +19,7 @@
 
   .screenBorder {
     height: 265px;
+    @include adaptive-value('height', 265, 50, 0);
     background: linear-gradient(90deg, #0ACFFE 0%, #495AFF 100%);
   }
 </style>
