@@ -6,7 +6,7 @@
   import Redirect from '../routes/redirect.svelte'
   import { PATH } from '../routes/path'
 
-  export let url = '';
+  export let url = ''
 </script>
 
 <Router {url}>
