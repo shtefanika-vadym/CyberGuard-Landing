@@ -37,7 +37,8 @@
   text-fill-color: transparent;
 }
 
-.description {
+.description,
+.button {
   font-style: normal;
   font-weight: 500;
   @include adaptive-value('font-size', 24, 10, 0);
@@ -68,6 +69,52 @@
     width: 100%;
     text-align: center;
   }
+}
+
+.contactForm {
+  display: flex;
+  @include adaptive-value('row-gap', 20, 10, 0);
+  flex-direction: column;
+}
+
+.button {
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+  @include adaptive-value('padding', 24, 5, 0);
+  @include adaptive-value('border-radius', 8, 3, 0);
+  background: linear-gradient(90deg, #0acffe 0%, #495aff 100%);
+}
+
+.inputField,
+.textareaField {
+  width: 100%;
+  outline: none;
+  line-height: 100%;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  @include adaptive-value('font-size', 16, 12, 0);
+  @include adaptive-value('border-radius', 8, 3, 0);
+  @include adaptive-value('padding', 20, 10, 0);
+}
+
+.textareaField {
+  resize: none;
+  min-height: 140px;
+}
+
+.labelField {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  @include adaptive-value('font-size', 14, 12, 0);
+}
+
+.errorMessage {
+  font-weight: 500;
+  padding: 2px 0 0 0;
+  color: var(--color-error);
+  @include adaptive-value('font-size', 12, 8, 0);
 }
 
 ::-webkit-scrollbar {

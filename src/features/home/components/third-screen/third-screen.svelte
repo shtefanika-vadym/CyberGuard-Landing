@@ -33,12 +33,12 @@
   .screen {
     position: unset;
     height: min-content;
-    @include adaptive-value('padding-top', 350, 100, 0);
+    padding-top: 0;
     @include adaptive-value('padding-bottom', 350, 100, 0);
   }
   .content {
     display: flex;
-    row-gap: 115px;
+    @include adaptive-value('row-gap', 115, 20, 0);
     flex-direction: column;
     justify-content: center;
   }

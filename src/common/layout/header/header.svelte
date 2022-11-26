@@ -14,10 +14,6 @@
 
   onMount(() => activeRoute = `/${window.location.pathname.split('/')[1]}`)
 
-  $: {
-    console.log(activeRoute)
-  }
-
 </script>
 
 <header class="content header">

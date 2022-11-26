@@ -17,7 +17,7 @@
         {FIRST_SCREEN_LABELS.YOUR_LIFE}
       </h1>
       <p class="description screenDescription">{FIRST_SCREEN_LABELS.USE_TO_HELP}</p>
-      <button class="button description">{FIRST_SCREEN_LABELS.GET_CYBERGUARD}</button>
+      <button class="button">{FIRST_SCREEN_LABELS.GET_CYBERGUARD}</button>
     </div>
     <img class="screenImage" src={screenImg} alt={ALT_IMG.SCREEN_IMG}>
   </div>
@@ -47,16 +47,6 @@
     @include device(extraSmall) {
       text-align: center;
     }
-  }
-
-  .button {
-    cursor: pointer;
-    font-weight: 700;
-    border-radius: 8px;
-    border: none;
-    @include adaptive-value('padding', 24, 5, 0);
-    @include adaptive-value('border-radius', 8, 3, 0);
-    background: linear-gradient(90deg, #0ACFFE 0%, #495AFF 100%);
   }
 
   .screenImage {

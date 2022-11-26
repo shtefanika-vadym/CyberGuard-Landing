@@ -26,6 +26,7 @@
   "dependencies": {
     "keycloak-js": "^17.0.0",
     "sass": "^1.56.1",
-    "svelte-routing": "^1.6.0"
+    "svelte-routing": "^1.6.0",
+    "sveltik": "^0.1.16"
   }
 }
