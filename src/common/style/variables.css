@@ -2,5 +2,9 @@
   --color-white: #fff;
   --color-black: #000000;
   --color-background: #15161a;
+  --dark-100: #15161a;
+  --dark-200: #1f2025;
+  --gray-100: #b7b7b7;
+  --cyan-100: #45edf2;
   --color-error: #CB7D61;
 }
