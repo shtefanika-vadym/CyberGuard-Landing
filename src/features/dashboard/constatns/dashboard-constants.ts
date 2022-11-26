@@ -4,7 +4,7 @@ export const DASHBOARD_NAVIGATION_ALT = {
 }
   
 export const DASHBOARD_NAVIGATION_PATH = {
-    HOME: 'home',
+    HOME: 'dashboard',
     HISTORY: 'history',
     MALICIOUS: 'malicious',
 }
