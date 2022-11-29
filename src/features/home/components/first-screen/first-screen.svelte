@@ -1,9 +1,16 @@
-<script>
+<script lang="ts">
+  import { navigate } from "svelte-routing"
+
   import screenImg from '../../assets/first-bg.png'
   import {
     FIRST_SCREEN_LABELS
   } from '../../constants/constants';
   import { ALT_IMG } from '../../../../common/constants/constants';
+  import { PATH } from '../../../../routes/path'
+
+  const handleNavigateToLogin = (): void => {
+    navigate(PATH.LOGIN)
+  }
 
 </script>
 
@@ -17,7 +24,9 @@
         {FIRST_SCREEN_LABELS.YOUR_LIFE}
       </h1>
       <p class="description screenDescription">{FIRST_SCREEN_LABELS.USE_TO_HELP}</p>
-      <button class="button">{FIRST_SCREEN_LABELS.GET_CYBERGUARD}</button>
+      <button on:click={handleNavigateToLogin} class="button">
+        {FIRST_SCREEN_LABELS.GET_CYBERGUARD}
+      </button>
     </div>
     <img class="screenImage" src={screenImg} alt={ALT_IMG.SCREEN_IMG}>
   </div>

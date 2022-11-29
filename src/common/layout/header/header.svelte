@@ -3,7 +3,6 @@
 
   import logo from '../../assets/icons/logo.png'
   import { ALT_IMG, NAVIGATION_LIST } from '../../constants/constants'
-  import { onMount } from 'svelte'
 
   let activeRoute: string = ''
 
@@ -12,23 +11,28 @@
     activeRoute = route
   }
 
-  onMount(() => activeRoute = `/${window.location.pathname.split('/')[1]}`)
+  $: {
+    activeRoute = window.location.pathname
+  }
 
 </script>
 
-<header class="content header">
-  <img class="logo" src={logo} alt={ALT_IMG.LOGO_ICON}>
-  <nav class="navigationList">
-    {#each NAVIGATION_LIST as route}
-      <button
-        class={"routeItem"}
-        class:activeRoute={activeRoute === route.to}
-        on:click={() =>handleNavigate(route.to)}>{route.title}
-      </button>
-    {/each}
-  </nav>
-  <span class="profile">Profile</span>
-</header>
+{#if !window.location.pathname.includes('/login') && !window.location.pathname.includes('register')}
+  <header class="content header">
+    <img class="logo" src={logo} alt={ALT_IMG.LOGO_ICON}>
+    <nav class="navigationList">
+      {#each NAVIGATION_LIST as route}
+        <button
+          class={"routeItem"}
+          class:activeRoute={activeRoute === route.to}
+          on:click={() =>handleNavigate(route.to)}>
+          {route.title}
+        </button>
+      {/each}
+    </nav>
+    <span class="profile">Profile</span>
+  </header>
+{/if}
 
 <style lang="scss">
   @import "src/common/style/responsive";
