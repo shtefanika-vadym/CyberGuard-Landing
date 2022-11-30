@@ -10,13 +10,14 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
+    "@colorfuldots/svelteit": "^1.0.0-alpha.7",
     "@rollup/plugin-alias": "^4.0.2",
     "@rollup/plugin-replace": "^5.0.1",
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
     "@tsconfig/svelte": "^2.0.1",
     "dotenv": "^16.0.3",
     "prettier": "^2.8.0",
-    "svelte": "^3.44.0",
+    "svelte": "^3.53.1",
     "svelte-check": "^2.2.7",
     "svelte-preprocess": "^4.9.8",
     "tslib": "^2.3.1",
@@ -24,8 +25,16 @@
     "vite": "^2.8.0"
   },
   "dependencies": {
+    "@carbon/charts-svelte": "^1.6.1",
+    "@svelteuidev/core": "^0.7.5",
+    "chart.js": "^4.0.1",
     "keycloak-js": "^17.0.0",
+    "layercake": "^7.1.0",
+    "pancake": "^3.4.1",
+    "rollup-plugin-dsv": "^1.2.0",
     "sass": "^1.56.1",
+    "svelte-frappe-charts": "^1.10.0",
+    "svelte-fusioncharts": "^1.0.0",
     "svelte-routing": "^1.6.0",
     "sveltik": "^0.1.16"
   }

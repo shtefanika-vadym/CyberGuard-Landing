@@ -3,7 +3,6 @@
 
   import Home from '../features/home/home.svelte'
   import Redirect from '../routes/redirect.svelte'
-  import Header from '../common/layout/header/header.svelte'
   import { PATH } from '../routes/path'
   import DashboardNavigation from '../features/dashboard/components/dashboard-navigation/dashboard-navigation.svelte'
 
@@ -11,7 +10,6 @@
 </script>
 
 <Router {url}>
-  <Header />
   <Route path={PATH.HOME} component={Home} />
   <Route path={PATH.DASHBOARD} component={DashboardNavigation} />
   <Route path="*" component={Redirect} />
