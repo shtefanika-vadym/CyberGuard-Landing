@@ -1,9 +1,9 @@
 <script lang="ts">
   import {
-    DASHBOARD_NAVIGATION_PATH,
     DASHBOARD_NAVIGATION_ALT,
     DASHBOARD_NAVIGATION,
   } from '../../constatns/dashboard-constants'
+  import DashboardMainPage from '../dashboard-main-page/dashboard-main-page.svelte'
   import logo from '../../assets/logo.png'
 
   import { navigate } from 'svelte-routing'
@@ -17,19 +17,6 @@
   const handleChangeDashboardNavigation = (elements: string) => {
     navigate(`/dashboard/${elements}`)
     activeRoute = elements
-  }
-
-  const getCurrentAccountComponent = (route: string) => {
-    switch (route) {
-      case DASHBOARD_NAVIGATION_PATH.HOME:
-        return 'home'
-      case DASHBOARD_NAVIGATION_PATH.HISTORY:
-        return 'history'
-      case DASHBOARD_NAVIGATION_PATH.MALICIOUS:
-        return 'malicious'
-      default:
-        return 'dashboard'
-    }
   }
 </script>
 
@@ -53,7 +40,17 @@
         </p>
       </div>{/each}
   </div>
-  <div class="dashboardNavigationChild">{getCurrentAccountComponent(activeRoute)}</div>
+  <div class="dashboardNavigationChild">
+    {#if activeRoute === 'home'}
+      <DashboardMainPage />
+    {:else if activeRoute === 'history'}
+      history
+    {:else if activeRoute === 'malicious'}
+      malicious
+    {:else}
+      <DashboardMainPage />
+    {/if}
+  </div>
 </div>
 
 <style lang="scss">

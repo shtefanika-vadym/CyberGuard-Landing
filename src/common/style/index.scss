@@ -132,3 +132,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.chart-container .axis, .chart-container .chart-label {
+  fill: var(--color-white--second);
+}

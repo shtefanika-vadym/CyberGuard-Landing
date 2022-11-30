@@ -6,9 +6,11 @@
   import ThirdScreen from './components/third-screen/third-screen.svelte'
   import ContactForm from './components/contact-form/contact-form.svelte'
   import { ALT_IMG } from '../../common/constants/constants'
+  import Header from '../../common/layout/header/header.svelte'
 </script>
 
 <div class="home">
+  <Header />
   <FirstScreen />
   <div class="screenBorder">
     <div class="content">
@@ -17,9 +19,10 @@
         <p class="description">{HOME_LABELS.WAITLIST_DESCRIPTION}</p>
       </div>
       <div class="details subscribe">
-        <input type='text' placeholder='Email Address'>
-        <button class='subscribeButton'>{HOME_LABELS.JOINT_THE_WAITLIST}
-          <img src={arrowIcon} alt={ALT_IMG.ARROW_ICON}>
+        <input type="text" placeholder="Email Address" />
+        <button class="subscribeButton"
+          >{HOME_LABELS.JOINT_THE_WAITLIST}
+          <img src={arrowIcon} alt={ALT_IMG.ARROW_ICON} />
         </button>
       </div>
     </div>
@@ -31,7 +34,7 @@
 </div>
 
 <style lang="scss">
-  @import "src/common/style/responsive";
+  @import 'src/common/style/responsive';
 
   .content {
     column-gap: 50px;
@@ -47,7 +50,8 @@
     }
   }
 
-  .details, .subscribe {
+  .details,
+  .subscribe {
     width: 50%;
     @include device(smallOnly) {
       width: 100%;
@@ -56,7 +60,7 @@
 
   .screenBorder {
     @include adaptive-value('min-height', 265, 50, 0);
-    background: linear-gradient(90deg, #0ACFFE 0%, #495AFF 100%);
+    background: linear-gradient(90deg, #0acffe 0%, #495aff 100%);
     @include adaptive-value('padding-top', 80, 30, 0);
     @include adaptive-value('padding-left', 150, 50, 0);
     @include adaptive-value('padding-bottom', 80, 30, 0);
@@ -91,7 +95,7 @@
   .subscribeButton {
     border: none;
     cursor: pointer;
-    background-color: #050A12;
+    background-color: #050a12;
     @include adaptive-value('border-radius', 8, 4, 0);
     font-style: normal;
     font-weight: 700;
