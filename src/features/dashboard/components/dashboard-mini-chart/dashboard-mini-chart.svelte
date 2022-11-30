@@ -30,7 +30,7 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
-    color: #e8e8fc;
+    color: var(--color-white--second);
   }
   .chartTitle {
     margin: 0;
@@ -38,6 +38,6 @@
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
-    color: #e8e8fc;
+    color: var(--color-white--second);
   }
 </style>

@@ -21,7 +21,7 @@
     font-weight: 400;
     font-size: 10px;
     line-height: 22px;
-    color: #e8e8fc;
+    color: var(--color-white--second);
   }
 
   .position {

@@ -34,7 +34,7 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
-    color: #e8e8fc;
+    color: var(--color-white--second);
   }
 
   .dashboardWebsiteCategory {
@@ -43,7 +43,7 @@
     font-weight: 700;
     font-size: 8px;
     line-height: 16px;
-    color: #e8e8fc;
+    color: var(--color-white--second);
   }
 
   .position {

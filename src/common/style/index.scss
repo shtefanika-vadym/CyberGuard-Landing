@@ -133,26 +133,6 @@
   background: #555;
 }
 
-// .line-chart .chart-draw-area {
-//   fill: red;
-// }
-
 .chart-container .axis, .chart-container .chart-label {
-  fill: #e8e8fc;
+  fill: var(--color-white--second);
 }
-
-// element.style {
-//   stroke: red;
-//   fill: none;
-//   stroke-width: 2;
-// }
-
-// .chart-container .dataset-units circle {
-//   stroke: red;
-// }
-
-// element.style {
-//   stroke: red;
-//   fill: none;
-//   stroke-width: 2;
-// }

@@ -59,7 +59,7 @@
     font-weight: 700;
     font-size: 36px;
     line-height: 44px;
-    color: #e8e8fc;
+    color: var(--color-white--second);
   }
   .screenGrid {
     max-width: 1300px;
@@ -75,55 +75,55 @@
   }
   .g1 {
     grid-area: g1;
-    background-color: #1f2025;
+    background-color: var(--dark-200);
     border-radius: 15px;
     height: 105px;
   }
   .g2 {
     grid-area: g2;
-    background-color: #1f2025;
+    background-color: var(--dark-200);
     border-radius: 15px;
   }
   .g3 {
     grid-area: g3;
-    background-color: #1f2025;
+    background-color: var(--dark-200);
     border-radius: 15px;
   }
   .g4 {
     grid-area: g4;
-    background-color: #1f2025;
+    background-color: var(--dark-200);
     border-radius: 15px;
   }
   .g5 {
     grid-area: g5;
-    background-color: #1f2025;
+    background-color: var(--dark-200);
     border-radius: 15px;
   }
   .g6 {
     grid-area: g6;
-    background-color: #1f2025;
+    background-color: var(--dark-200);
     border-radius: 15px;
   }
   .g7 {
     grid-area: g7;
-    background-color: #1f2025;
+    background-color: var(--dark-200);
     border-radius: 15px;
   }
   .g8 {
     grid-area: g8;
-    background-color: #1f2025;
+    background-color: var(--dark-200);
     border-radius: 15px;
   }
   .g9 {
     grid-area: g9;
-    background-color: #1f2025;
+    background-color: var(--dark-200);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
   }
   .g10 {
     grid-area: g10;
-    background-color: #1f2025;
+    background-color: var(--dark-200);
     border-radius: 15px;
   }
   .dashboardWebsiteDonute {
@@ -138,7 +138,7 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
-    color: #e8e8fc;
+    color: var(--color-white--second);
   }
 
   .dashboardWebsiteDonuteLegend {
@@ -150,7 +150,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
-    color: #e8e8fc;
+    color: var(--color-white--second);
   }
 
   .dashboardWebsiteDonuteLegendSpan {
