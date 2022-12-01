@@ -1,5 +1,6 @@
 <script>
   import { DASHBOARD_TRUSTED_WEBSITE } from '../../constatns/dashboard-mockdata'
+  import DashboardCustomer from '../dashboard-customer/dashboard-customer.svelte'
   import DashboardDonuteChart from '../dashboard-donute-chart/dashboard-donute-chart.svelte'
   import DashboardLargeChart from '../dashboard-large-chart/dashboard-large-chart.svelte'
   import DashboardMiniChart from '../dashboard-mini-chart/dashboard-mini-chart.svelte'
@@ -14,13 +15,13 @@
     </div>
     <div class="g2"><DashboardMiniChart number={'3.324'} title={'Users'} color={'yellow'} /></div>
     <div class="g3">
-      <DashboardMiniChart number={'6.324'} title={'Analysis'} color={'purple'} />
+      <DashboardMiniChart number={'6.324'} title={'Subscribers'} color={'purple'} />
     </div>
     <div class="g4">
-      <DashboardMiniChart number={'1.234'} title={'Phishing'} color={'yellow '} />
+      <DashboardMiniChart number={'1.234'} title={'Analysis'} color={'yellow '} />
     </div>
     <div class="g5">
-      <DashboardMiniChart number={'4.324'} title={'Analysis'} color={'purple'} />
+      <DashboardMiniChart number={'4.324'} title={'Phishing Attacks'} color={'purple'} />
     </div>
     <div class="g6">
       <DashboardWebsite
@@ -41,14 +42,31 @@
     <div class="g9">
       <h1 class="dashboardWebsiteDonuteTitle">All analysis summary</h1>
       <div class="dashboardWebsiteDonute">
-        <DashboardDonuteChart />
+        <div class="dashboardWebsiteDonuteChart">
+          <DashboardDonuteChart />
+        </div>
         <div class="dashboardWebsiteDonuteLegend">
-          <p><span class="dashboardWebsiteDonuteLegendSpan main" />Real (727432)</p>
-          <p><span class="dashboardWebsiteDonuteLegendSpan second" />Fake (341435)</p>
+          <p><span class="dashboardWebsiteDonuteLegendSpan main" />Real</p>
+          <p><span class="dashboardWebsiteDonuteLegendSpan second" />Fake</p>
         </div>
       </div>
     </div>
-    <div class="g10" />
+    <div class="g10">
+      <h1 class="dashboardWebsiteDonuteTitle">All analysis summary</h1>
+      <div class="dashboardWebsiteDonute">
+        <div class="dashboardWebsiteDonuteChart">
+          <DashboardDonuteChart />
+        </div>
+        <div class="dashboardWebsiteDonuteLegend">
+          <p><span class="dashboardWebsiteDonuteLegendSpan main" />Real</p>
+          <p><span class="dashboardWebsiteDonuteLegendSpan second" />Fake</p>
+        </div>
+      </div>
+    </div>
+    <div class="g11">
+      <h1 class="dashboardWebsiteDonuteTitle">Customer Satisfaction</h1>
+      <DashboardCustomer />
+    </div>
   </div>
 </div>
 
@@ -71,7 +89,7 @@
     grid-template-areas:
       'g1 g2 g3 g4 g5'
       'g6 g6 g7 g7 g7'
-      'g8 g8 g9 g9 g10';
+      'g8 g8 g9 g10 g11';
   }
   .g1 {
     grid-area: g1;
@@ -126,11 +144,17 @@
     background-color: var(--dark-200);
     border-radius: 15px;
   }
+  .g11 {
+    grid-area: g11;
+    background-color: var(--dark-200);
+    border-radius: 15px;
+  }
   .dashboardWebsiteDonute {
     margin: 10px 15px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    gap: 15px;
   }
   .dashboardWebsiteDonuteTitle {
     margin: 10px 0 0 15px;
@@ -143,9 +167,7 @@
 
   .dashboardWebsiteDonuteLegend {
     display: flex;
-    flex-direction: column;
     gap: 22px;
-    margin: 0 20% 0 0;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -167,5 +189,10 @@
 
   .second {
     background-color: #636366;
+  }
+
+  .dashboardWebsiteDonuteChart {
+    width: 124px;
+    height: 124px;
   }
 </style>
