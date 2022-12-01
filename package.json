@@ -13,6 +13,7 @@
     "@colorfuldots/svelteit": "^1.0.0-alpha.7",
     "@rollup/plugin-alias": "^4.0.2",
     "@rollup/plugin-replace": "^5.0.1",
+    "@smui/data-table": "^7.0.0-beta.0",
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
     "@tsconfig/svelte": "^2.0.1",
     "dotenv": "^16.0.3",
@@ -26,6 +27,8 @@
   },
   "dependencies": {
     "@carbon/charts-svelte": "^1.6.1",
+    "@smui/icon-button": "^7.0.0-beta.0",
+    "@smui/textfield": "^7.0.0-beta.0",
     "@svelteuidev/core": "^0.7.5",
     "chart.js": "^4.0.1",
     "keycloak-js": "^17.0.0",
@@ -36,6 +39,7 @@
     "svelte-frappe-charts": "^1.10.0",
     "svelte-fusioncharts": "^1.0.0",
     "svelte-routing": "^1.6.0",
+    "svelte-table": "^0.5.2",
     "sveltik": "^0.1.16"
   }
 }

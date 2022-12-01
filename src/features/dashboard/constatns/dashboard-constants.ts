@@ -23,8 +23,8 @@ export const DASHBOARD_NAVIGATION = [
     ICON_INACTIVE: '/img/history-inactive.svg',
 },
 {
-    TITLE: 'Malicious Website',
-    ROUTE: 'malicious',
+    TITLE: 'Blacklist',
+    ROUTE: 'blacklist',
     ICON_ACTIVE: '/img/malicious.svg',
     ICON_INACTIVE: '/img/malicious-inactive.svg',
 },
