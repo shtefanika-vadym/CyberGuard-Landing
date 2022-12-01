@@ -10,6 +10,7 @@
 
   import { onMount } from 'svelte'
   import DashboardHistoryTable from '../dashboard-history-table/dashboard-history-table.svelte'
+  import DashboardBlacklist from '../dashboard-blacklist/dashboard-blacklist.svelte'
 
   let activeRoute = 'home'
 
@@ -47,7 +48,7 @@
     {:else if activeRoute === 'history'}
       <DashboardHistoryTable />
     {:else if activeRoute === 'blacklist'}
-      malicious
+      <DashboardBlacklist />
     {:else}
       <DashboardMainPage />
     {/if}
