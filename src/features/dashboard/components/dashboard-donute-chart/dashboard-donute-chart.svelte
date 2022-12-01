@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { quantize, interpolatePlasma, pie, arc } from 'd3'
   import data from './donute-data' // or pass data to component as prop
 
@@ -42,9 +42,9 @@
   const arcPath = arc().innerRadius(innerRadius).outerRadius(outerRadius)
 
   const arcLabel = arc().innerRadius(labelRadius).outerRadius(labelRadius)
-</script>
+</script> -->
 
-<svg {width} {height} viewBox="{-width / 2} {-height / 2} {width} {height}">
+<!-- <svg {width} {height} viewBox="{-width / 2} {-height / 2} {width} {height}">
   {#each wedges as wedge, i}
     <path
       fill={colors[i]}
@@ -53,14 +53,13 @@
       stroke-width={strokeWidth}
       stroke-linejoin={strokeLinejoin} />
     <g text-anchor="middle" transform="translate({arcLabel.centroid(wedge)})">
-      <!-- <text font-size={fontSize}>
+      <text font-size={fontSize}>
         <tspan font-weight="bold">{xVals[i]}</tspan>
         <tspan x="0" dy="1.1em" color="#fff"
           >{percent ? `${(yVals[i] * 100).toFixed(2)}%` : yVals[i].toLocaleString('en-US')}</tspan>
-      </text> -->
+      </text>
     </g>
   {/each}
-</svg>
-
+</svg> -->
 <style>
 </style>
