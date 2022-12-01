@@ -29,11 +29,11 @@
   }
 
   .red {
-    color: #ef4444;
+    color: var(--color-error);
   }
 
   .green {
-    color: #10b981;
+    color: var(--color--success);
   }
 
   .dashboardProgress {

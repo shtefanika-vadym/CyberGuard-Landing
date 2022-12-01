@@ -9,6 +9,7 @@
   import { navigate } from 'svelte-routing'
 
   import { onMount } from 'svelte'
+  import DashboardHistoryTable from '../dashboard-history-table/dashboard-history-table.svelte'
 
   let activeRoute = 'home'
 
@@ -44,8 +45,8 @@
     {#if activeRoute === 'home'}
       <DashboardMainPage />
     {:else if activeRoute === 'history'}
-      history
-    {:else if activeRoute === 'malicious'}
+      <DashboardHistoryTable />
+    {:else if activeRoute === 'blacklist'}
       malicious
     {:else}
       <DashboardMainPage />
@@ -59,8 +60,8 @@
   }
 
   .dashboardNavigationWrapper {
-    height: 100vh;
-    width: 330px;
+    min-height: 100vh;
+    width: 280px;
     background-color: var(--dark-200);
   }
 
@@ -75,8 +76,8 @@
   .dashboardNavigationText {
     margin: 0;
     font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
+    font-weight: 500;
+    font-size: 18px;
     line-height: 29px;
     color: var(--gray-100);
   }
@@ -85,7 +86,7 @@
     margin: 0;
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 29px;
     color: var(--color-white);
   }

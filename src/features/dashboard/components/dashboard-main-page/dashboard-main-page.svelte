@@ -29,7 +29,7 @@
         progressColor="#10B981" />
     </div>
     <div class="g7">
-      <h1 class="dashboardWebsiteDonuteTitle">All analysis summary</h1>
+      <h1 class="dashboardWebsiteDonuteTitle">Users activity</h1>
       <DashboardLargeChart />
     </div>
     <div class="g8">
