@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "CyberGuard-Landing.fullname" . }}-test-connection"
+  labels:
+    {{- include "CyberGuard-Landing.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "CyberGuard-Landing.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
