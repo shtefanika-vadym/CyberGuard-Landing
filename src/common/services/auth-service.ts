@@ -1,17 +1,36 @@
+import ky, { Options } from 'ky'
+
 import { keycloakInstance } from '../../keycloak'
 
-const initKeycloak = async (onAuthenticatedCallback: () => any) => {
+const initKeycloak = async () => {
   await keycloakInstance.init({
-    onLoad: 'login-required',
     checkLoginIframe: false,
+    flow: 'implicit',
   })
-  if (keycloakInstance.authenticated) onAuthenticatedCallback()
-  else console.warn('User not logged')
+  if (keycloakInstance.authenticated) {
+    console.log('inside')
+  } else console.log('User not logged')
 
-  setInterval(() => keycloakInstance.updateToken(70), 6000)
+  // setInterval(() => keycloakInstance.updateToken(70), 6000)
 }
 
-const doLogin = keycloakInstance.login
+const doLogin = async (loginData: { username: string; password: string }) => {
+  console.log(loginData)
+  const response = await ky
+    .post(
+      `${import.meta.env.VITE_KEYCLOAK_URL}/realms/${
+        import.meta.env.VITE_KEYCLOAK_REALM
+      }/protocol/openid-connect/token`,
+      {
+        ...loginData,
+        clientId: import.meta.env.VITE_KEYCLOAK_CLIENT as string,
+        grant_type: 'password',
+        client_secret: import.meta.env.VITE_KEYCLOAK_CLIENT_SECRET as string,
+      } as Options,
+    )
+    .json()
+  console.log(response)
+}
 
 const doLogout = keycloakInstance.logout
 

@@ -2,8 +2,8 @@
   import { Router, Route } from 'svelte-routing'
 
   import Home from '../features/home/home.svelte'
-  import Login from '../features/auth/login/login.svelte'
-  import Register from '../features/auth/register/register.svelte'
+  import Login from '../features/auth/components/login/login.svelte'
+  import Register from '../features/auth/components/register/register.svelte'
   import Redirect from '../routes/redirect.svelte'
   import { PATH } from '../routes/path'
   import DashboardNavigation from '../features/dashboard/components/dashboard-navigation/dashboard-navigation.svelte'
