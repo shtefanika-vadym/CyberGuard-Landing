@@ -16,7 +16,7 @@
   </div>
   <div class="dashboardWebsiteProgresBar">
     {#if progressBarData}
-      {#each progressBarData as element}
+      {#each progressBarData.slice(0, 4) as element}
         <DashboardProgressBar progressData={element} {progressColor} />
       {/each}
     {/if}

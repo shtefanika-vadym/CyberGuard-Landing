@@ -3,38 +3,28 @@
   import chevronUpActive from '../../assets/icons/chevron-up-active.svg'
   import chevronDownActive from '../../assets/icons/chevron-down-active.svg'
   import deleteIcon from '../../assets/icons/delete.svg'
+  import { onMount } from 'svelte'
+  import { MainAPI } from '../../api/api'
+  import { Jumper } from 'svelte-loading-spinners'
 
-  var rows = [
-    {
-      id: 1,
-      website: 'www.military.com',
-      label: 'Satire',
-    },
-    {
-      id: 2,
-      website: 'www.military.com',
-      label: 'Satire',
-    },
-    {
-      id: 3,
-      website: 'www.military.com',
-      label: 'Satire',
-    },
-  ]
-
-  let items = rows
+  let items = []
+  let status = ''
   let sort = 'id'
   let sortDirection: Lowercase<keyof typeof SortValue> = 'ascending'
-  // API CALL
-  // if (typeof fetch !== 'undefined') {
-  //   fetch(
-  //     'https://gist.githubusercontent.com/hperrin/e24a4ebd9afdf2a8c283338ae5160a62/raw/dcbf8e6382db49b0dcab70b22f56b1cc444f26d4/users.json',
-  //   )
-  //     .then((response) => response.json())
-  //     .then((json) => (items = json))
-  // }
+
+  onMount(async () => {
+    try {
+      status = 'loading'
+      const res = await MainAPI.getBlacklist()
+      items = res.data
+      status = 'succeeded'
+    } catch (error) {
+      console.log(error)
+    }
+  })
+
   function handleSort() {
-    items.sort((a, b) => {
+    items?.sort((a, b) => {
       const [aVal, bVal] = [a[sort], b[sort]][sortDirection === 'ascending' ? 'slice' : 'reverse']()
       if (typeof aVal === 'string' && typeof bVal === 'string') {
         return aVal.localeCompare(bVal)
@@ -68,13 +58,21 @@
     </Row>
   </Head>
   <Body>
-    {#each items as item (item.id)}
-      <Row class="test">
-        <Cell class="test"><p class="tableWebsite">{item.website}</p></Cell>
-        <Cell><p class="tableLabel">{item.label}</p></Cell>
-        <Cell><button class="tableActions"><img src={deleteIcon} alt="" /></button></Cell>
-      </Row>
-    {/each}
+    {#if status === 'loading'}
+      <div class="loadingStyle">
+        <Jumper size="60" color="#45EDF2" unit="px" duration="1s" />
+      </div>
+    {:else if status === 'succeeded'}
+      {#each items as item (item.id)}
+        <Row class="test">
+          <Cell class="test"><p class="tableWebsite">{item.url}</p></Cell>
+          <Cell><p class="tableLabel">{item.label}</p></Cell>
+          <Cell><button class="tableActions"><img src={deleteIcon} alt="" /></button></Cell>
+        </Row>
+      {/each}
+    {:else}
+      <p>Something went wrong please try again</p>
+    {/if}
   </Body>
 </DataTable>
 
@@ -93,6 +91,11 @@
     outline: none;
     background: transparent;
     cursor: pointer;
+  }
+
+  .loadingStyle {
+    position: absolute;
+    left: 50%;
   }
 
   .tableLabel {

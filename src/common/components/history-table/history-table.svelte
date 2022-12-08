@@ -3,63 +3,31 @@
   import chevronUpActive from '../../assets/icons/chevron-up-active.svg'
   import chevronDownActive from '../../assets/icons/chevron-down-active.svg'
   import deleteIcon from '../../assets/icons/delete.svg'
+  import { MainAPI } from '../../api/api'
+  import { onMount } from 'svelte'
+  import { Jumper } from 'svelte-loading-spinners'
 
-  var rows = [
-    {
-      id: 1,
-      results: 'Real',
-      score: 82,
-      title: 'China Using Civilian Ships to Enhance Na...',
-      website: 'www.military.com',
-      category: 'Military',
-    },
-    {
-      id: 2,
-      results: 'Fake',
-      score: 98,
-      title: 'China Using Civilian Ships to Enhance Na...',
-      website: 'www.military.com',
-      category: 'Military',
-    },
-    {
-      id: 3,
-      results: 'Fake',
-      score: 87,
-      title: 'China Using Civilian Ships to Enhance Na...',
-      website: 'www.military.com',
-      category: 'Military',
-    },
-    {
-      id: 4,
-      results: 'Real',
-      score: 70,
-      title: 'China Using Civilian Ships to Enhance Na...',
-      website: 'www.military.com',
-      category: 'Military',
-    },
-    {
-      id: 5,
-      results: 'Real',
-      score: 81,
-      title: 'China Using Civilian Ships to Enhance Na...',
-      website: 'www.military.com',
-      category: 'Military',
-    },
-  ]
+  var rows = []
 
+  let status = ''
+  let error = ''
   let items = rows
   let sort = 'id'
   let sortDirection: Lowercase<keyof typeof SortValue> = 'ascending'
-  // API CALL
-  // if (typeof fetch !== 'undefined') {
-  //   fetch(
-  //     'https://gist.githubusercontent.com/hperrin/e24a4ebd9afdf2a8c283338ae5160a62/raw/dcbf8e6382db49b0dcab70b22f56b1cc444f26d4/users.json',
-  //   )
-  //     .then((response) => response.json())
-  //     .then((json) => (items = json))
-  // }
+
+  onMount(async () => {
+    try {
+      status = 'loading'
+      const res = await MainAPI.getArticles()
+      items = res.data
+      status = 'succeeded'
+    } catch (error) {
+      error = error
+    }
+  })
+
   function handleSort() {
-    items.sort((a, b) => {
+    items?.sort((a, b) => {
       const [aVal, bVal] = [a[sort], b[sort]][sortDirection === 'ascending' ? 'slice' : 'reverse']()
       if (typeof aVal === 'string' && typeof bVal === 'string') {
         return aVal.localeCompare(bVal)
@@ -101,28 +69,35 @@
         <Label>WEBSITE</Label>
         <img src={sortDirection === 'ascending' ? chevronUpActive : chevronDownActive} alt="" />
       </Cell>
-      <Cell columnId="email">
-        <Label>CATEGORY</Label>
-        <img src={sortDirection === 'ascending' ? chevronUpActive : chevronDownActive} alt="" />
-      </Cell>
       <!-- You can turn off sorting for a column. -->
       <Cell sortable={false}>ACTION</Cell>
     </Row>
   </Head>
   <Body>
-    {#each items as item (item.id)}
-      <Row>
-        <Cell>
-          <div class={item.results === 'Real' ? 'tableResults real' : 'tableResults fake'}>
-            <p>{item.results}</p>
-            <p>{item.score}% Confidence</p>
-          </div></Cell>
-        <Cell><p class="tableTitle">{item.title}</p></Cell>
-        <Cell><p class="tableWebsite">{item.website}</p></Cell>
-        <Cell><p class="tableCategory">{item.category}</p></Cell>
-        <Cell><button class="tableActions"><img src={deleteIcon} alt="" /></button></Cell>
-      </Row>
-    {/each}
+    {#if status === 'loading'}
+      <div class="loadingStyle">
+        <Jumper size="60" color="#45EDF2" unit="px" duration="1s" />
+      </div>
+    {:else if status === 'succeeded'}
+      {#each items as item (item.id)}
+        <Row>
+          <Cell>
+            <div class={item.is_fake ? 'tableResults fake' : 'tableResults real'}>
+              <p>{item.is_fake ? 'Fake' : 'Real'}</p>
+              <p>{item.accuracy}% Confidence</p>
+            </div></Cell>
+          <Cell><p class="tableTitle">{item.title}</p></Cell>
+          <Cell
+            ><p class="tableWebsite" on:click={() => window.open(item.url, '_blank')}>
+              {item.url}
+            </p></Cell>
+
+          <Cell><button class="tableActions"><img src={deleteIcon} alt="" /></button></Cell>
+        </Row>
+      {/each}
+    {:else}
+      <p>Something went wrong please try again</p>
+    {/if}
   </Body>
 </DataTable>
 
@@ -146,12 +121,21 @@
     color: var(--color-error);
   }
 
+  .loadingStyle {
+    position: absolute;
+    left: 50%;
+  }
+
   .tableTitle {
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     color: var(--color-white--second);
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .tableWebsite {
@@ -160,7 +144,12 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     color: var(--color-white--second);
+    cursor: pointer;
   }
 
   .tableActions {
