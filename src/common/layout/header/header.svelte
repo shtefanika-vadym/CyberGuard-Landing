@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { navigate } from "svelte-routing"
+  import { navigate } from 'svelte-routing'
 
   import logo from '../../assets/icons/logo.png'
   import { ALT_IMG, NAVIGATION_LIST } from '../../constants/constants'
@@ -14,28 +14,26 @@
   $: {
     activeRoute = window.location.pathname
   }
-
 </script>
 
 {#if !window.location.pathname.includes('/login') && !window.location.pathname.includes('register')}
   <header class="content header">
-    <img class="logo" src={logo} alt={ALT_IMG.LOGO_ICON}>
+    <img class="logo" src={logo} alt={ALT_IMG.LOGO_ICON} />
     <nav class="navigationList">
       {#each NAVIGATION_LIST as route}
         <button
-          class={"routeItem"}
+          class={'routeItem'}
           class:activeRoute={activeRoute === route.to}
-          on:click={() =>handleNavigate(route.to)}>
+          on:click={() => handleNavigate(route.to)}>
           {route.title}
         </button>
       {/each}
     </nav>
-    <span class="profile">Profile</span>
   </header>
 {/if}
 
 <style lang="scss">
-  @import "src/common/style/responsive";
+  @import 'src/common/style/responsive';
 
   .header {
     z-index: 2;
@@ -47,7 +45,8 @@
     @include adaptive-value('padding-top', 40, 10, 0);
   }
 
-  .routeItem, .profile {
+  .routeItem,
+  .profile {
     font-style: normal;
     font-weight: 700;
     line-height: 100%;

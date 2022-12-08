@@ -20,4 +20,9 @@ export const NAVIGATION_LIST: NavigationItem[] = [
     to: PATH.DASHBOARD,
     title: 'Dashboard',
   },
+  {
+    to: PATH.PROFILE,
+    title: 'My account',
+  },
+
 ]
