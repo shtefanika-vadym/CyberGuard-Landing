@@ -2,16 +2,20 @@ import ky, { Options } from 'ky'
 
 import { keycloakInstance } from '../../keycloak'
 
-const initKeycloak = async () => {
+const initKeycloak = async (callback: () => void) => {
   await keycloakInstance.init({
-    checkLoginIframe: false,
-    flow: 'implicit',
+    checkLoginIframe: true,
+    onLoad: 'login-required',
   })
   if (keycloakInstance.authenticated) {
-    console.log('inside')
-  } else console.log('User not logged')
-
-  // setInterval(() => keycloakInstance.updateToken(70), 6000)
+    callback()
+    console.log(
+      keycloakInstance.loadUserInfo().then((re) => {
+        console.log(re)
+      }),
+    )
+    console.warn('User logged')
+  } else console.warn('User not logged')
 }
 
 const doLogin = async (loginData: { username: string; password: string }) => {
@@ -38,7 +42,7 @@ const getToken = (): string | undefined => keycloakInstance.token
 
 const isLoggedIn = (): boolean => !!keycloakInstance.token
 
-const getUserName = (): string => keycloakInstance.tokenParsed?.preferred_username
+const getUserName = (): string => keycloakInstance?.tokenParsed?.preferred_username
 const getUserFullName = (): string => keycloakInstance.tokenParsed?.name
 const getUserEmail = (): string => keycloakInstance.tokenParsed?.email
 const getUserId = (): string => keycloakInstance.tokenParsed?.sub as string
