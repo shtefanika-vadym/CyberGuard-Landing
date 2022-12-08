@@ -1,38 +1,38 @@
-<script lang="ts">
-  import { navigate } from "svelte-routing"
+<script lang='ts'>
+  import { navigate } from 'svelte-routing'
 
   import screenImg from '../../assets/first-bg.png'
   import {
-    FIRST_SCREEN_LABELS
-  } from '../../constants/constants';
-  import { ALT_IMG } from '../../../../common/constants/constants';
-  import { PATH } from '../../../../routes/path'
+    FIRST_SCREEN_LABELS,
+  } from '../../constants/constants'
+  import { ALT_IMG } from '../../../../common/constants/constants'
+  import { keycloakInstance } from '../../../../keycloak'
 
   const handleNavigateToLogin = (): void => {
-    navigate(PATH.LOGIN)
+    navigate(keycloakInstance.createLoginUrl())
   }
 
 </script>
 
-<div class="screen">
-  <div class="content">
-    <div class="contentInfo">
-      <h1 class="screenTitle">
+<div class='screen'>
+  <div class='content'>
+    <div class='contentInfo'>
+      <h1 class='screenTitle'>
         {FIRST_SCREEN_LABELS.EXTRA_LAYER}
         <br />
-        <span class="textGradient">{FIRST_SCREEN_LABELS.SECURITY}</span>
+        <span class='textGradient'>{FIRST_SCREEN_LABELS.SECURITY}</span>
         {FIRST_SCREEN_LABELS.YOUR_LIFE}
       </h1>
-      <p class="description screenDescription">{FIRST_SCREEN_LABELS.USE_TO_HELP}</p>
-      <button on:click={handleNavigateToLogin} class="button">
+      <p class='description screenDescription'>{FIRST_SCREEN_LABELS.USE_TO_HELP}</p>
+      <button class='button' on:click={handleNavigateToLogin}>
         {FIRST_SCREEN_LABELS.GET_CYBERGUARD}
       </button>
     </div>
-    <img class="screenImage" src={screenImg} alt={ALT_IMG.SCREEN_IMG}>
+    <img alt={ALT_IMG.SCREEN_IMG} class='screenImage' src={screenImg}>
   </div>
 </div>
 
-<style lang="scss">
+<style lang='scss'>
   @import "src/common/style/responsive";
 
   h1 {

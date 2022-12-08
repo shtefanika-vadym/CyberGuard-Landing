@@ -1,25 +1,33 @@
 <script>
-  let name = 'Costescu Adrian'
-  let email = 'costescuadrian@outlook.com'
+  import { keycloakInstance } from '../../../../keycloak'
+
+  let name = ''
+  let email = ''
+  $: {
+    if (keycloakInstance.tokenParsed?.name)
+      name = keycloakInstance.tokenParsed?.name
+    if (keycloakInstance.tokenParsed?.email)
+      email = keycloakInstance.tokenParsed?.email
+  }
 </script>
 
 <div>
-  <h1 class="profileMainTitle">Change personal info</h1>
-  <div class="profileMainInputWrapper">
-    <p class="profileMainInputText">Name</p>
-    <div class="profileMainInputStyle">
-      <input class="profileMainInput" type="text" name="name" value={name} />
+  <h1 class='profileMainTitle'>Change personal info</h1>
+  <div class='profileMainInputWrapper'>
+    <p class='profileMainInputText'>Name</p>
+    <div class='profileMainInputStyle'>
+      <input class='profileMainInput' name='name' type='text' value={name} />
     </div>
   </div>
-  <div class="profileMainInputWrapper">
-    <p class="profileMainInputText">Email</p>
-    <div class="profileMainInputStyle">
-      <input class="profileMainInput" type="text" name="name" value={email} />
+  <div class='profileMainInputWrapper'>
+    <p class='profileMainInputText'>Email</p>
+    <div class='profileMainInputStyle'>
+      <input class='profileMainInput' name='name' type='email' value={email} />
     </div>
   </div>
 </div>
 
-<style lang="scss">
+<style lang='scss'>
   .profileMainTitle {
     font-style: normal;
     font-weight: 500;

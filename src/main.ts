@@ -6,11 +6,10 @@ import './common/style/responsive.scss'
 
 import { AuthService } from './common/services/auth-service'
 
-const app = new App({
-  target: document.getElementById('app'),
-  hydrate: false,
-})
+const app = () =>
+  new App({
+    target: document.getElementById('app'),
+    hydrate: false,
+  })
 
-AuthService.initKeycloak()
-
-export default app
+AuthService.initKeycloak(app)
