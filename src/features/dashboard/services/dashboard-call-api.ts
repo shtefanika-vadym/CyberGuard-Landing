@@ -65,9 +65,26 @@ const getStatistics = async () => {
     }
   }
 
+  const getContact = async () => {
+    try {
+      const data = await axios({
+        method: 'get',
+        headers: {
+          authorization: `Bearer ${AuthService.getToken()}`,
+          accept: 'application/json',
+        },
+        url: 'https://cyberguard-api.azurewebsites.net/contact',
+      })
+      return data
+    } catch (error) {
+      return error.message
+    }
+  }
+
   export const TaskManagerAPI = {
     getStatistics,
     getTrustedSite,
     getVulnerableSite,
     getAnalysesSummary,
+    getContact,
   }

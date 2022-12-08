@@ -12,6 +12,7 @@
   import DashboardHistoryTable from '../dashboard-history-table/dashboard-history-table.svelte'
   import DashboardBlacklist from '../dashboard-blacklist/dashboard-blacklist.svelte'
   import DashboardPhishing from '../dashboard-phishing/dashboard-phishing.svelte'
+  import DashboardMessagess from '../dashboard-messagess/dashboard-messagess.svelte'
 
   let activeRoute = 'home'
 
@@ -51,6 +52,8 @@
       <DashboardBlacklist />
     {:else if activeRoute === 'phishing'}
       <DashboardPhishing />
+    {:else if activeRoute === 'messagess'}
+      <DashboardMessagess />
     {:else}
       <DashboardMainPage />
     {/if}
