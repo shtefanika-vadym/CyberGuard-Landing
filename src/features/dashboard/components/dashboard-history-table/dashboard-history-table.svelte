@@ -4,7 +4,7 @@
 </script>
 
 <div class="dashboardHistoryTable">
-  <h1 class="dashboardHistoryTitle">Tasks History</h1>
+  <h1 class="dashboardHistoryTitle">Analisys History</h1>
   <div class="dashboardHistorySearch">
     <Search />
   </div>
