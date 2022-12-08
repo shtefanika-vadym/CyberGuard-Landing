@@ -21,7 +21,7 @@
   }
 
   .dashboardBlacklist {
-    margin: 50px 0 20px 20px;
+    margin: 50px 0 20px 0px;
     font-style: normal;
     font-weight: 700;
     font-size: 36px;

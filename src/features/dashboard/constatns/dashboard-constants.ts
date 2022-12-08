@@ -28,4 +28,10 @@ export const DASHBOARD_NAVIGATION = [
     ICON_ACTIVE: '/img/malicious.svg',
     ICON_INACTIVE: '/img/malicious-inactive.svg',
 },
+{
+    TITLE: 'Phishing',
+    ROUTE: 'phishing',
+    ICON_ACTIVE: '/img/phishing.svg',
+    ICON_INACTIVE: '/img/phishing-inactive.svg',
+},
 ]

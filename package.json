@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@svelteuidev/core": "^0.7.6",
+    "axios": "^1.2.1",
     "chart.js": "^4.0.1",
     "keycloak-js": "^17.0.0",
     "ky": "^0.32.2",

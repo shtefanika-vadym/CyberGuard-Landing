@@ -15,9 +15,11 @@
     <p class="dashboardWebsiteCategory position">PROCENT</p>
   </div>
   <div class="dashboardWebsiteProgresBar">
-    {#each progressBarData as element}
-      <DashboardProgressBar progressData={element} {progressColor} />
-    {/each}
+    {#if progressBarData}
+      {#each progressBarData as element}
+        <DashboardProgressBar progressData={element} {progressColor} />
+      {/each}
+    {/if}
   </div>
 </div>
 

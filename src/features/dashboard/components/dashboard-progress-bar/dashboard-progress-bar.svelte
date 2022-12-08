@@ -6,12 +6,12 @@
 
 <div>
   <div class="dashboardProgress">
-    <p class="dashboardProgressText">{progressData.website}</p>
-    <p class="dashboardProgressText position red">{progressData.fake}</p>
-    <p class="dashboardProgressText position green">{progressData.real}</p>
-    <p class="dashboardProgressText position">{progressData.procent}%</p>
+    <p class="dashboardProgressText">{progressData?.website || 0}</p>
+    <p class="dashboardProgressText position red">{progressData?.fakeNews || 0}</p>
+    <p class="dashboardProgressText position green">{progressData?.realNews || 0}</p>
+    <p class="dashboardProgressText position">{Math.floor(progressData?.percentage) || 0}%</p>
   </div>
-  <Progress size="sm" color={progressColor} value={progressData.procent} />
+  <Progress size="sm" color={progressColor} value={Math.floor(progressData?.percentage)} />
 </div>
 
 <style lang="scss">
