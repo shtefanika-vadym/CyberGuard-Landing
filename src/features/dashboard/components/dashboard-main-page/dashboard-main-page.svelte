@@ -1,32 +1,72 @@
 <script>
-  import { DASHBOARD_TRUSTED_WEBSITE } from '../../constatns/dashboard-mockdata'
+  import { onMount } from 'svelte'
+  import { TaskManagerAPI } from '../../services/dashboard-call-api'
   import DashboardCustomer from '../dashboard-customer/dashboard-customer.svelte'
   import DashboardDonuteChart from '../dashboard-donute-chart/dashboard-donute-chart.svelte'
   import DashboardLargeChart from '../dashboard-large-chart/dashboard-large-chart.svelte'
   import DashboardMiniChart from '../dashboard-mini-chart/dashboard-mini-chart.svelte'
   import DashboardWebsite from '../dashboard-website/dashboard-website.svelte'
+
+  let dashbordData
+  let trustedSite
+  let vulnerableSite
+  let analysesSummary
+
+  onMount(async () => {
+    const res = await TaskManagerAPI.getStatistics()
+    dashbordData = res.data
+  })
+
+  onMount(async () => {
+    const res = await TaskManagerAPI.getTrustedSite()
+    trustedSite = res.data
+  })
+
+  onMount(async () => {
+    const res = await TaskManagerAPI.getVulnerableSite()
+    vulnerableSite = res.data
+  })
+
+  onMount(async () => {
+    const res = await TaskManagerAPI.getAnalysesSummary()
+    analysesSummary = res.data
+  })
 </script>
 
 <div>
   <h1 class="screenTitle">Dashboard</h1>
   <div class="screenGrid">
     <div class="g1">
-      <DashboardMiniChart number={'4.324'} title={'Downloads'} color={'purple'} />
+      <DashboardMiniChart
+        number={dashbordData?.downloads || 0}
+        title={'Downloads'}
+        color={'purple'} />
     </div>
-    <div class="g2"><DashboardMiniChart number={'3.324'} title={'Users'} color={'yellow'} /></div>
+    <div class="g2">
+      <DashboardMiniChart number={dashbordData?.users || 0} title={'Users'} color={'yellow'} />
+    </div>
     <div class="g3">
-      <DashboardMiniChart number={'6.324'} title={'Subscribers'} color={'purple'} />
+      <DashboardMiniChart
+        number={dashbordData?.users || 0}
+        title={'Subscribers'}
+        color={'purple'} />
     </div>
     <div class="g4">
-      <DashboardMiniChart number={'1.234'} title={'Analysis'} color={'yellow '} />
+      <DashboardMiniChart
+        number={dashbordData?.analyses || 0}
+        title={'Analysis'}
+        color={'yellow '} />
     </div>
     <div class="g5">
-      <DashboardMiniChart number={'4.324'} title={'Phishing Attacks'} color={'purple'} />
+      <DashboardMiniChart
+        number={dashbordData?.phishing || 0}
+        title={'Phishing Attacks'}
+        color={'purple'} />
     </div>
     <div class="g6">
       <DashboardWebsite
         dashboardWebsiteTitle="The Most Trusted Website"
-        progressBarData={DASHBOARD_TRUSTED_WEBSITE}
+        progressBarData={trustedSite}
         progressColor="#10B981" />
     </div>
     <div class="g7">
@@ -36,14 +76,14 @@
     <div class="g8">
       <DashboardWebsite
         dashboardWebsiteTitle="The Most Vulnerable Website"
-        progressBarData={DASHBOARD_TRUSTED_WEBSITE}
+        progressBarData={vulnerableSite}
         progressColor="#EF4444" />
     </div>
     <div class="g9">
       <h1 class="dashboardWebsiteDonuteTitle">All analysis summary</h1>
       <div class="dashboardWebsiteDonute">
         <div class="dashboardWebsiteDonuteChart">
-          <DashboardDonuteChart />
+          <DashboardDonuteChart analyses={analysesSummary} />
         </div>
         <div class="dashboardWebsiteDonuteLegend">
           <p><span class="dashboardWebsiteDonuteLegendSpan main" />Real</p>
@@ -55,7 +95,7 @@
       <h1 class="dashboardWebsiteDonuteTitle">All analysis summary</h1>
       <div class="dashboardWebsiteDonute">
         <div class="dashboardWebsiteDonuteChart">
-          <DashboardDonuteChart />
+          <DashboardDonuteChart analyses={analysesSummary} />
         </div>
         <div class="dashboardWebsiteDonuteLegend">
           <p><span class="dashboardWebsiteDonuteLegendSpan main" />Real</p>
