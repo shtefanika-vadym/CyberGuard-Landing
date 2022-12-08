@@ -143,8 +143,12 @@
 
 .mdc-data-table__content .mdc-data-table__row {
   color: white;
-  border: 1px solid red;
 }
+
+.mdc-data-table__row {
+  vertical-align: middle;
+}
+
 
 .mdc-data-table__content td:first-child {
   // border: 1px solid #f2f2f7;

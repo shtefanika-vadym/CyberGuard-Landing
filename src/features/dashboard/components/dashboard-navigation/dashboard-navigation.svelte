@@ -18,7 +18,6 @@
   onMount(() => (activeRoute = window.location.href))
 
   const handleChangeDashboardNavigation = (elements: string) => {
-    navigate(`/dashboard/${elements}`)
     activeRoute = elements
   }
 </script>
