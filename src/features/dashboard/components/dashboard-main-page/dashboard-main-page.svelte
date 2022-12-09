@@ -11,6 +11,10 @@
   let trustedSite
   let vulnerableSite
   let analysesSummary
+  let phishingSummary = {
+    fakeNews: 12,
+    realNews: 55,
+  }
 
   onMount(async () => {
     const res = await TaskManagerAPI.getStatistics()
@@ -92,14 +96,14 @@
       </div>
     </div>
     <div class="g10">
-      <h1 class="dashboardWebsiteDonuteTitle">All analysis summary</h1>
+      <h1 class="dashboardWebsiteDonuteTitle">Phishing summary</h1>
       <div class="dashboardWebsiteDonute">
         <div class="dashboardWebsiteDonuteChart">
-          <DashboardDonuteChart analyses={analysesSummary} />
+          <DashboardDonuteChart analyses={phishingSummary} />
         </div>
         <div class="dashboardWebsiteDonuteLegend">
-          <p><span class="dashboardWebsiteDonuteLegendSpan main" />Real</p>
-          <p><span class="dashboardWebsiteDonuteLegendSpan second" />Fake</p>
+          <p><span class="dashboardWebsiteDonuteLegendSpan main" />Safe</p>
+          <p><span class="dashboardWebsiteDonuteLegendSpan second" />Threat</p>
         </div>
       </div>
     </div>
