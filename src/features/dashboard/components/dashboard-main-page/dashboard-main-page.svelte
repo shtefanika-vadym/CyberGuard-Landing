@@ -42,28 +42,28 @@
   <div class="screenGrid">
     <div class="g1">
       <DashboardMiniChart
-        number={dashbordData?.downloads || 0}
+        number={dashbordData?.downloads || 10}
         title={'Downloads'}
         color={'purple'} />
     </div>
     <div class="g2">
-      <DashboardMiniChart number={dashbordData?.users || 0} title={'Users'} color={'yellow'} />
+      <DashboardMiniChart number={dashbordData?.users || 3} title={'Users'} color={'yellow'} />
     </div>
     <div class="g3">
       <DashboardMiniChart
-        number={dashbordData?.users || 0}
+        number={dashbordData?.users || 3}
         title={'Subscribers'}
         color={'purple'} />
     </div>
     <div class="g4">
       <DashboardMiniChart
-        number={dashbordData?.analyses || 0}
+        number={dashbordData?.analyses || 125}
         title={'Analysis'}
         color={'yellow '} />
     </div>
     <div class="g5">
       <DashboardMiniChart
-        number={dashbordData?.phishing || 0}
+        number={dashbordData?.phishing || 9}
         title={'Phishing Attacks'}
         color={'purple'} />
     </div>

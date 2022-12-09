@@ -33,22 +33,22 @@ export const DASHBOARD_CUSTOMER = [
     },
     {
         satisfaction: 'Very Good',
-        score: 30,
+        score: 5,
         color: '#10B981',
     },
     {
         satisfaction: 'Good',
-        score: 7,
+        score: 3,
         color: '#FDCA01',
     },
     {
         satisfaction: 'Fair',
-        score: 10,
+        score: 3,
         color: '#FF9417',
     },
     {
         satisfaction: 'Poor',
-        score: 5,
+        score: 1,
         color: '#EF4444',
     }
 ]
