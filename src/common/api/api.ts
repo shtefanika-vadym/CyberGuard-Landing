@@ -33,8 +33,25 @@ const getBlacklist = async () => {
     }
   }
 
+  const getPhishing = async () => {
+    try {
+      const data = await axios({
+        method: 'get',
+        headers: {
+          authorization: `Bearer ${AuthService.getToken()}`,
+          accept: 'application/json',
+        },
+        url: 'https://cyberguard-api.azurewebsites.net/phishing',
+      })
+      return data
+    } catch (error) {
+      return error.message
+    }
+  }
+
   
 export const MainAPI = {
     getArticles,
     getBlacklist,
+    getPhishing,
 }
